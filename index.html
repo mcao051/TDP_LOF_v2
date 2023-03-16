@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang='en'>
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<head>
+	<title>Markers of TDP-43 loss of function</title>
+	<link rel="icon" type="image/x-icon" href="assets/scotterlab-web.jpeg">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+    		font-size: 15px;
+			line-height: 1.4;
+			margin:0;
+			color: #333;
+		}
+		h1, h2, h3, h4, h5, h6{
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			color: #00467f;
+			font-weight: 700;
+		}
+		iframe, select, img{
+			width: 100%;
+			border: none;
+		}
+		iframe.dex{
+			height: 80vh !important;
+		}
+		.logos {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1rem;
+		}
+		.logos img{
+			width: 100px
+		}
+		.logos img:first-child{
+			width: 158px;
+		}
+		.max{
+			width: 88%;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+		nav.filters {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		nav.filters label{
+			flex: 1 0 22rem;
+			margin: 5px;
+		}
+		nav.filters div{
+			flex: 1 1 100%;
+		}
+		section {
+			padding: 2rem 0;
+		}
+		section:nth-child(odd){
+			background-color: #f4f4f4;
+		}
+		.choices__inner{
+			min-height: 0 !important;
+			box-sizing: border-box;
+			padding: 7.5px !important;
+		}
+		[data-item][data-value="liu"]{
+			background-color: #c400ff !important;
+			color: #fff !important;
+		}
+		[data-choice][data-value="liu"]{
+			color: #c400ff !important;
+		}
+		button {
+			display: inline-block;
+			margin-bottom: 0;
+			font-weight: 400;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			-ms-touch-action: manipulation;
+			touch-action: manipulation;
+			cursor: pointer;
+			background-image: none;
+			border: 1px solid transparent;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			border-radius: 4px;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			color: #fff;
+			background-color: #337ab7;
+			border-color: #2e6da4;
+			margin-top: 10px
+		}
+		button:hover{
+			color: #fff;
+			background-color: #286090;
+			border-color: #204d74;
+		}
+		header.max {
+			padding: 0 0 2rem;
+		}
+		header h1{
+			margin-bottom: 0;
+			font-size: 20pt;
+		}
+		header h2{
+			margin-top: 0;
+			font-size: 16pt;
+		}
+		h3.dex{
+			color: #333
+		}
+		h3.dex em{
+			font-weight: 400
+		}
+		footer{
+			background: #333;
+			color: #fff;
+			padding: 1rem 0;
+		}
+		footer a{
+			color: #fff;
+		}
+		.loading {
+			border-radius: 50%;
+			width: 30px;
+			height: 30px;
+			border: .25rem solid #777;
+			border-top-color: #000;
+			animation: spin 1s infinite linear;
+			margin-bottom: 2rem
+		}
+		@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+		}
+		.hide{
+			display:none !important
+		}
+		.ref{
+			font-size: 13px;
+		}
+		.mbn{
+			margin-bottom: 0
+		}
+		.mtn{
+			margin-top: 0
+		}
+	</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+</head>
+<body>
+	<div id="app"><Results></Results></div>
+
+	<template id="results">
+		<div class="logos max">
+			<img src="assets/scotterlab-web.jpeg" alt="Scotter Lab">
+			<img src="assets/uos.svg" alt="University of Auckland">
+		</div>
+		<header class="max">
+			<h1>Markers of TDP-43 loss of function:</h1>
+			<h2>Differentially expressed genes and exon usage in various model systems</h2>
+			<p>This page contains data supplementing our manuscript <em>Novel and known transcriptional targets of ALS/FTD protein TDP-43: Meta-analysis and interactive graphical database</em> (2022).
+				<br>Maize C. Cao<sup>1</sup>, <a href="mailto:m.cao@auckland.ac.nz">m.cao@auckland.ac.nz</a>.
+				<br>
+				Emma L. Scotter<sup>1,2</sup>, <a href="mailto:emma.scotter@auckland.ac.nz">emma.scotter@auckland.ac.nz</a>.
+			</p>
+			<ol class="ref">
+				<li>School of Biological Sciences and Centre for Brain Research, University of Auckland, Auckland, New Zealand. 3A Symonds Street, Auckland 1010, New Zealand</li>
+				<li>Corresponding author</li>
+			</ol>
+			<p class="mbn">
+				These data are re-analysed from the following publications:
+			</p>
+			<ul class="ref mtn">
+				<li><b>HeLa;</b> Roczniak-Ferguson A, Ferguson SM. Pleiotropic requirements for human TDP-43 in the regulation of cell and organelle homeostasis. Life Sci Alliance. 2019;2(5). PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31527135" target="_blank">31527135</a></li>
+
+				<li><b>SH-SY5Y;</b> Melamed Ze, López-Erauskin J, Baughn MW, Zhang O, Drenner K, Sun Y, et al. Premature polyadenylation-mediated loss of stathmin-2 is a hallmark of TDP-43-dependent neurodegeneration. 2019;22(2):180-90. PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30643298" target="_blank">30643298</a></li>
+
+				<li><b>Induced Human Motor Neuron (ihMN);</b> Klim JR, Williams LA, Limone F, Guerra San Juan I, Davis-Dusenbery BN, Mordes DA, et al. ALS-implicated protein TDP-43 sustains levels of STMN2, a mediator of motor neuron growth and repair. Nat Neurosci. 2019;22(2):167-79. PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/30643292" target="_blank">30643292</a></li>
+
+				<li><b>Mouse Mammary Gland (M.mam);</b> Zhao L, Ke H, Xu H, Wang GD, Zhang H, Zou L, et al. TDP-43 facilitates milk lipid secretion by post-transcriptional regulation of Btn1a1 and Xdh. Nat Commun. 2020;11(1):341. PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31953403" target="_blank">31953403</a></li>
+
+				<li><b>Mouse Striatum (M.str);</b> Polymenidou M, Lagier-Tourenne C, Hutt KR, Huelga SC, Moran J, Liang TY, et al. Long pre-mRNA depletion and RNA missplicing contribute to neuronal vulnerability from loss of TDP-43. Nat Neurosci. 2011;14(4):459-68. PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/21358643" target="_blank">21358643</a></li>
+
+				<li><b>Rat Astrocyte (R.ast);</b> LaRocca TJ, Mariani A, Watkins LR, Link CD. TDP-43 knockdown causes innate immune activation via protein kinase R in astrocytes. Neurobiol Dis. 2019;132:104514. PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/31229690" target="_blank">31229690</a></li>
+
+				<li><b>ALS/FTD Neurons (TDP neg);</b> Liu EY, Russ J, Cali CP, Phan JM, Amlie-Wolf A, Lee EB. Loss of nuclear TDP-43 is associated with decondensation of LINE retrotransposons. Cell reports. 2019;27(5):1409-21. e6. PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/35197626" target="_blank">35197626</a></li>
+			</ul>
+			<nav class="filters" :class="loading ? 'hide': '' ">
+				<label>
+					Search Gene Name:<br>
+					<select id="geneSearch"><option value="">All Data</option></select>
+				</label>
+				<label>
+					Select Data Type:<br>
+					<select id="dataTypes"></select>
+				</label>
+				<label>
+					Select Model Systems: (leaving empty shows all)<br>
+					<select multiple id="models"><option value="">Click for options</option></select>
+				</label>
+				<div>
+					<button id="search" @click.stop="doSearch">Filter Data</button>
+					<p class="filter-message" v-if="checkDataTypes == 'details'">Please note only genes with significant differential exon usage events can be searched for.</p>
+					<p class="filter-message" v-if="checkDataTypes == 'glimma'">Please note only genes that have passed the low count filter will be shown.</p>
+				</div>
+			</nav>
+		</header>
+		<div class="max" v-if="loading"><h3>Loading Data. Please wait!</h3> <div class="loading"></div></div>
+		<div class="content" v-if="!loading">
+			<type v-for="type of types" :info="type" :filters="filters"></type>
+		</div>
+		<footer>
+			<p class="max">Copyright University of Auckland | All Rights Reserved | Website design by <a title="Website Design Wellington" href="https://tailgunner.co.nz/" target="_blank">Tailgunner</a></p>
+		</footer>
+	</template>
+
+	<template id="type">
+		<section :class="[info.class, showModel ? '' : 'hide']">
+			<div class="max">
+				<h2>{{info.title}}</h2>
+				<iframe :src="info.iframe" scrolling="no" class="glimma" :class="showGlimmaFilter ? '' : 'hide'" @load="resizeOnLoad"></iframe>
+				<div class="details" :data-src="info.details" :class="showDetailsFilter ? '' : 'hide'">
+					<iframe class="dex" :src="info.dex" @load="resizeOnLoad"></iframe>
+				</div>
+			</div>
+		</section>
+	</template>
+</body>
+<script src='https://unpkg.com/vue@3.2.31/dist/vue.global.prod.js?ver=1'></script>
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<script src='https://unpkg.com/mitt/dist/mitt.umd.js?ver=5.4.10'></script>
+<script>
+window.onload = ()=>{
+
+	/*
+	 * SETUP VUE
+	 */
+	const app = Vue.createApp({});
+	const emitter = mitt();
+
+	/*
+	 * Results Component
+	 */
+	app.component('Results', {
+		template: document.getElementById('results'),
+		data(){
+			return{
+				loading: true,
+				fetch: true,
+				choices: {gene: null, dataTypes: null, models: null},
+				change: 0,
+				filters: {gene: false, dataTypes: [], models: []},
+				types: [
+					{class: 'ferguson', title: 'HeLa', iframe: '/HeLa_DEG/Ferguson_et_al.html', details: '/HeLaDEXSeq/files/', dex: '/HeLaDEXSeq/HeLa.html', asset: 'assets/ferguson.json', json: false},
+					{class: 'melamed', title: 'SHSY5Y', iframe: '/SHSY5Y_DEG/Melamed_et_al.html', details: '/SHSY5YDEXSeq/files/', dex: '/SHSY5YDEXSeq/SHSY5Y.html', asset: 'assets/melamed.json', json: false},
+					{class: 'klim', title: 'Induced Human Motor Neuron (ihMN)', iframe: '/ihMN_DEG/Klim_et_al.html', details: '/ihMNDEXSeq/files/', dex: '/ihMNDEXSeq/ihMN.html', asset: 'assets/klim.json', json: false},
+					{class: 'zhao', title: 'Mouse Mammary Gland (M.mam)', iframe: '/Mmam_DEG/zhao_et_al.html', details: '/MmamDEXSeq/files/', dex: '/MmamDEXSeq/Mouse_mammary.html', asset: 'assets/zhao.json', json: false},
+					{class: 'polymenidou', title: 'Mouse Striatum (M.str)', iframe: '/Mstr_DEG/Polymenidou_et_al.html', details: '/MstrDEXSeq/files/', dex: '/MstrDEXSeq/Mouse_striatum.html', asset: 'assets/polymenidou.json', json: false},
+					{class: 'larocca', title: 'Rat Astrocyte (R.ast)', iframe: '/Rast_DEG/Larocca_et_al.html', details: '/RastDEXSeq/files/', dex: '/RastDEXSeq/rat_astrocyte.html', asset: 'assets/larocca.json', json: false},
+					{class: 'liu', title: 'ALS / FTD neurons (TDP neg)', iframe: '/TDPneg_DEG/Liu_et_al.html', details: '/TDPnegDEXSeq/files/', dex: '/TDPnegDEXSeq/TDP_NeuN.html', asset: 'assets/liu.json', json: false},
+          {class: 'pericyte', title: 'Pericyte', iframe: '/Pericyte_DEG/index.html', details: '/Pericyte_DEU/files/', dex: '/Pericyte_DEU/pericyte.html', asset: 'assets/pericyte.json', json: false},
+				],
+				typesLoaded: 0
+			}
+		},
+		async mounted(){
+			/*
+			* SEARCH
+			*/
+			Promise.all(this.types.map((type)=>{
+				return Promise.all([
+					fetch('assets/'+type.class+'.json').then(result=>(result.json())).catch((e)=>{ console.error(e) }),
+					fetch('assets/glimma-'+type.class+'.json').then(result=>(result.json())).catch((e)=>{ console.error(e) })
+				])
+			}))
+			.then((results)=>{
+				for([i,result] of results.entries()){
+					this.types[i].json = result;
+					if(i == this.types.length-1){
+						this.fetch = false;
+					}
+				}
+			})
+			.catch((e)=>{ console.error(e) });
+
+		},
+		methods:{
+
+			/*
+			 * SEARCH
+			 */
+			doSearch(){
+				this.filters = {
+					gene: this.choices.gene.getValue(),
+					dataTypes: this.choices.dataTypes.getValue(),
+					models: this.choices.models.getValue()
+				}
+				console.log(this.filters);
+			}
+		},
+		computed:{
+			allChoices(){
+				let choices = [];
+				var seen = new Set();
+				for(type of this.types){
+					if(type.json){
+						// Push DEXSEQ
+						for(item of type.json[0]){
+							// Change 'NONE' labels to values
+							if(item.label == 'None'){
+								item.label = item.value;
+							}
+							// if not duplicate
+							let duplicate = seen.has(item.label.toLowerCase());
+							if(!duplicate){
+								choices.push(item);
+							}
+							seen.add(item.label.toLowerCase());
+						}
+						// Push Glimma
+						for(item of type.json[1]){
+							// if not duplicate
+							let duplicate = seen.has(item.toLowerCase());
+							if(!duplicate){
+								choices.push({label: item, value: item});
+							}
+							seen.add(item.toLowerCase());
+						}
+					}
+				}
+				//console.log(choices);
+				return choices;
+				// REMOVE DUPLICATES
+				/*let filtered = choices.filter((choice, i)=>{
+					return i == choices.findIndex((v)=>(
+							v.label.toLowerCase() == choice.label.toLowerCase()
+					));
+				})
+				var seen = new Set();
+				let filtered = choices.filter(choice => {
+					const duplicate = seen.has(choice.label.toLowerCase());
+					seen.add(choice.label.toLowerCase());
+					return !duplicate;
+				});
+				return filtered;*/
+			},
+			checkDataTypes(){
+				this.change;
+				if(this.choices.dataTypes){
+					return this.choices.dataTypes.getValue().value
+				}
+				return {value: ''}
+			}
+		},
+		watch:{
+			fetch(val, old){
+				if(!val){
+					// genes
+					this.choices.gene = new Choices('#geneSearch', {
+						choices: this.allChoices,
+						searchResultLimit: 20,
+						renderChoiceLimit: 20,
+						callbackOnInit: ()=>{
+							this.loading = false;
+						},
+						allowHTML: false,
+						searchFields: ['label'],
+						searchFloor: 3,
+						removeItemButton: true
+					});
+					// data types
+					this.choices.dataTypes = new Choices('#dataTypes', {
+						choices: [
+							{label: 'Differentially expressed genes', value: 'glimma', selected: true},
+							{label: 'Differential exon usage', value: 'details'}
+						],
+						allowHTML: false
+					})
+					document.getElementById('dataTypes').addEventListener('choice', ()=>{
+						this.change ++;
+					})
+					// Models
+					this.choices.models = new Choices('#models', {
+						choices: [
+							{label: 'HeLa', value: 'ferguson'},
+							{label: 'SH-SY5Y', value: 'melamed'},
+							{label: 'Induced human motor neurons', value: 'klim'},
+							{label: 'Mouse striatum', value: 'polymenidou'},
+							{label: 'Mouse mammary gland', value: 'zhao'},
+							{label: 'Rat astrocytes', value: 'larocca'},
+							{label: 'ALS/FTD neurons', value: 'liu'},
+						],
+						removeItemButton: true,
+						allowHTML: false
+					});
+
+					emitter.on('typeMounted', ()=>{
+						this.typesLoaded +=1;
+						if(this.typesLoaded == this.types.length){
+							console.log('all types loadeed')
+							this.doSearch();
+						}
+					})
+				}
+			}
+		}
+	}); // end <Results />
+
+	/*
+	 * Type component
+	 */
+	app.component('type', {
+		template: document.getElementById('type'),
+		props: {
+			info: {type:Object},
+			filters: {type:Object}
+		},
+		data(){
+			return{
+				choice: {}
+			}
+		},
+		mounted(){
+			emitter.emit('typeMounted')
+			emitter.on('detailsNav', (el)=>{
+				let href = el.getAttribute('href');
+				let details = document.querySelector('.'+this.info.class+' iframe.results')
+				if(!details){
+					return;
+				}
+				if(!details.contentDocument.title.includes(href)){
+					let type = this.getPageType(href);
+					details.contentDocument.querySelector('a[href*="'+type.toLowerCase()+'"]').click();
+				}
+			})
+		},
+		computed:{
+			showModel(){ 
+				let show = true;
+
+				// Models Check
+				if(this.filters.models.length){
+					let check = this.filters.models.filter((type)=>{
+						return type.value == this.info.class;
+					})
+					if(!check.length){
+						show = false;
+					}
+				}
+
+				// otherwise do not show
+				return show;
+			},
+			showDetailsFilter(){
+				if(Object.keys(this.filters.dataTypes).length){
+					if(this.filters.dataTypes.value == 'details'){
+						return true;
+					}
+					return false;
+				}
+				return false;
+			},
+			showGlimmaFilter(){
+				if(Object.keys(this.filters.dataTypes).length){
+					if(this.filters.dataTypes.value == 'glimma'){
+						return true;
+					}
+					return false;
+				}
+				return true;
+			}
+		},
+		methods:{
+			// resize results
+			resizeIframes(){
+				let iframes = document.querySelectorAll('.'+this.info.class+' iframe');
+
+				iframes.forEach((iframe)=>{
+					iframe.addEventListener('load', ()=>{
+						iframe.height = iframe.contentDocument.body.scrollHeight+20+'px';
+						if(iframe.classList.contains('results')){
+							// set fonts
+							iframe.contentDocument.querySelector('body').style.fontFamily = 'Arial, Helvetica, sans-serif';
+							// remove back button
+							iframe.contentDocument.querySelector('a[href*=".."]').closest('td').remove();
+							//set margin to 0
+							iframe.contentDocument.querySelector('body').style.margin = '0';
+							// add title
+							let title = iframe.contentDocument.title.toLowerCase();
+							let html = document.createElement('h4');
+							html.innerHTML = this.getPageType(title);
+							iframe.contentDocument.querySelector('body').prepend(html);
+							title = iframe.contentDocument.querySelector('h4')
+							title.style.marginTop = '0';
+							title.style.color = '#00467f';
+							title.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+
+							//font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+							//color: #00467f;
+
+							// When navigation is clicked, emit event
+							iframe.contentDocument.addEventListener('click', (e)=>{
+								emitter.emit('detailsNav', e.target);
+							})
+						}
+						if(iframe.classList.contains('dex')){
+							iframe.contentDocument.querySelector('body').style.fontFamily = 'Arial, Helvetica, sans-serif';
+						}
+					});
+					iframe.height = iframe.contentDocument.body.scrollHeight+20+'px';
+					
+					if(iframe.classList.contains('hide')){
+						setTimeout(() => {
+							iframe.height = iframe.contentDocument.body.scrollHeight+20+'px';
+						}, 200);
+					}
+				})
+			},
+			// resize on load
+			resizeOnLoad(e){
+				let iframe = e.target;
+				if(!iframe.classList.contains('dex')){
+					iframe.height = iframe.contentDocument.body.scrollHeight+20+'px';
+				}
+				
+				if(iframe.classList.contains('dex')){
+					iframe.contentDocument.querySelector('body').style.fontFamily = '"Source Sans Pro",Calibri,Candara,Arial,sans-serif';
+				}
+			},
+			// get page type from iframe title
+			getPageType(title){
+				
+				if(title.includes('counts')){
+					title = 'Counts';
+				} else if(title.includes('expression')){
+					title = 'Expression';
+				} else if(title.includes('splicing')){
+					title = 'Splicing';
+				} else if(title.includes('transcripts')){
+					title = 'Transcripts';
+				} else if(title.includes('results')){
+					title = 'Results';
+				}
+				return title;
+			}
+		},
+		watch:{
+			/*
+			* Extra graphs from selection
+			*/
+			choice(val, old){
+				
+				// Get section
+				section = document.querySelector('section.'+this.info.class);
+
+				// get details div and clear it
+				let details = section.querySelector('.details');
+				details.innerHTML = '';
+
+				// return if empty
+				if(Object.keys(val).length === 0){
+					return;
+				}
+
+				// if glimma being shown
+				if(this.showGlimmaFilter){
+					// Send search filter to Glimma
+					let glimmaFrame = section.querySelector('.glimma').contentDocument;
+					// set search value
+					let search = glimmaFrame.querySelector('.dataTables_filter [type="search"]');
+					if(search){
+						search.value = val.glimma.label; search.dispatchEvent(new Event('keyup', {'bubbles':true}));
+					}
+
+					if( val.glimma.label ){
+						// select gene
+						let table = section.querySelector('.glimma').contentWindow.glimma.get.table(0);
+						let row = table.data().filter((v)=>{
+							return v.GeneID == val.glimma.label;
+						});
+						if(row.length){
+							table.highlightById(row[0]); table.click();
+						}
+					}
+				}
+
+				// Get all the details
+				if(this.showDetailsFilter){
+					// if in listing
+					if(val.dex.label !== 'no match' && val.dex.value !== 'all'){
+
+						let el = document.createElement('div');
+						el.innerHTML = '<h3 class="dex">DEXSeq DEUs: <em>'+ val.dex.label +'</em></h3><iframe class="results" src="'+ details.dataset.src + val.dex.value + 'splicing.html"></iframe>';
+						el = details.appendChild(el);
+
+						/*const files = [{name: "Counts", src: 'counts.svg'}, {name:"Expression", src: 'expression.svg'}, {name:"Splicing", src: 'splicing.svg'}, {name: "Transcripts", src: 'transcripts.svg'}];
+						files.forEach((file)=>{
+							let el = document.createElement('div');
+							el.innerHTML = '<h2>'+file.name+' '+ val.dex.label +'</h2><img src="'+ details.dataset.src + val.dex.value + file.src +'">';
+							details.append(el);
+						});
+
+						let el = document.createElement('div');
+						el.innerHTML = '<h2>Results '+ val.dex.label +'</h2><iframe class="results" src="'+ details.dataset.src + val.dex.value + 'results.html"></iframe>';
+						el = details.appendChild(el);*/
+					}
+					// else no match
+					else if(val.dex.label == 'no match'){
+						details.innerHTML = '<h3>No significant DEUs<h3>';
+					}
+
+					else if(val.dex.value == 'all'){
+						details.innerHTML = '<iframe class="dex" src="'+ this.info.dex + '"></iframe>';
+					}
+				}
+
+				// Resize Iframes
+				this.resizeIframes();
+			},
+			filters(val,old){
+
+				if(val.gene){
+					var choice = JSON.parse(JSON.stringify(this.choice));
+					// Gene check (glimma)
+					let testG = this.info.json[1].filter((v)=>{
+						return v.toLowerCase() == val.gene.label.toLowerCase();
+					}) 
+					if(testG.length){
+						choice.glimma = {label: testG[0], value: testG[0]};
+					} else if(!testG.length && val.gene.value !== ''){
+						choice.glimma = {label: 'no match', value: 'no match'};
+					} else{
+						choice.glimma = {label: '', value: 'all'};
+					}
+
+					// Gene check (DEX)
+					let test = this.info.json[0].filter((v)=>{
+						return v.label.toLowerCase() == val.gene.label.toLowerCase();
+					}) 
+					if(test.length){
+						choice.dex = test[0];
+					} else if(!test.length && val.gene.value !== ''){
+						choice.dex = {label: 'no match', value: 'no match'};
+					} else{
+						choice.dex = {label: '', value: 'all'};
+					}
+
+					this.choice = choice
+				}
+			}
+		}
+	}); // end <type />
+
+	// Load app
+    app.mount('#app');
+}
+</script>
+</html>
