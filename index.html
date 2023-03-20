@@ -237,7 +237,7 @@ window.onload = ()=>{
   /*
    * Get markdown
    */
-  fetch("/intro.md")
+  fetch("/TDP_LOF_v2/intro.md")
   .then(res => {
     if(!res.ok) throw new Error(res.statusText)
     return res.text()
