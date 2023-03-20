@@ -146,7 +146,7 @@
 		.hide{
 			display:none !important
 		}
-		.ref{
+		header ol{
 			font-size: 13px;
 		}
 		.mbn{
@@ -167,17 +167,7 @@
 			<img src="assets/uos.svg" alt="University of Auckland">
 		</div>
 		<header class="max">
-			<h1>Markers of TDP-43 loss of function:</h1>
-			<h2>Differentially expressed genes and exon usage in various model systems</h2>
-			<p>This page contains data supplementing our manuscript <em>Novel and known transcriptional targets of ALS/FTD protein TDP-43: Meta-analysis and interactive graphical database</em> (2022).
-				<br>Maize C. Cao<sup>1</sup>, <a href="mailto:m.cao@auckland.ac.nz">m.cao@auckland.ac.nz</a>.
-				<br>
-				Emma L. Scotter<sup>1,2</sup>, <a href="mailto:emma.scotter@auckland.ac.nz">emma.scotter@auckland.ac.nz</a>.
-			</p>
-			<ol class="ref">
-				<li>School of Biological Sciences and Centre for Brain Research, University of Auckland, Auckland, New Zealand. 3A Symonds Street, Auckland 1010, New Zealand</li>
-				<li>Corresponding author</li>
-			</ol>
+			<div class="markdown"></div>
 			<p class="mbn">
 				These data are re-analysed from the following publications:
 			</p>
@@ -239,9 +229,28 @@
 </body>
 <script src='https://unpkg.com/vue@3.2.31/dist/vue.global.prod.js?ver=1'></script>
 <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
 <script src='https://unpkg.com/mitt/dist/mitt.umd.js?ver=5.4.10'></script>
 <script>
 window.onload = ()=>{
+
+  /*
+   * Get markdown
+   */
+  fetch("/intro.md")
+  .then(res => {
+    if(!res.ok) throw new Error(res.statusText)
+    return res.text()
+  })
+  .then(text => {
+    converter = new showdown.Converter({
+      encodeEmails: true
+    })
+    document.querySelector('.markdown').innerHTML = converter.makeHtml(text)
+  })
+  .catch(error => {
+    console.warn(error)
+  })
 
 	/*
 	 * SETUP VUE
