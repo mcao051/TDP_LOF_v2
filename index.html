@@ -253,6 +253,7 @@ window.onload = ()=>{
 				change: 0,
 				filters: {gene: false, dataTypes: [], models: []},
 				types: [
+					{class: 'pericyte', title: 'Human Brain Pericyte', iframe: '/Pericyte_DEG/index.html', details: '/Pericytes_DEU/files/', dex: '/Pericytes_DEU/Pericytes.html', asset: 'assets/pericyte.json', json: false},
 					{class: 'ferguson', title: 'HeLa', iframe: '/HeLa_DEG/Ferguson_et_al.html', details: '/HeLaDEXSeq/files/', dex: '/HeLaDEXSeq/HeLa.html', asset: 'assets/ferguson.json', json: false},
 					{class: 'melamed', title: 'SHSY5Y', iframe: '/SHSY5Y_DEG/Melamed_et_al.html', details: '/SHSY5YDEXSeq/files/', dex: '/SHSY5YDEXSeq/SHSY5Y.html', asset: 'assets/melamed.json', json: false},
 					{class: 'klim', title: 'Induced Human Motor Neuron (ihMN)', iframe: '/ihMN_DEG/Klim_et_al.html', details: '/ihMNDEXSeq/files/', dex: '/ihMNDEXSeq/ihMN.html', asset: 'assets/klim.json', json: false},
@@ -260,7 +261,6 @@ window.onload = ()=>{
 					{class: 'polymenidou', title: 'Mouse Striatum (M.str)', iframe: '/Mstr_DEG/Polymenidou_et_al.html', details: '/MstrDEXSeq/files/', dex: '/MstrDEXSeq/Mouse_striatum.html', asset: 'assets/polymenidou.json', json: false},
 					{class: 'larocca', title: 'Rat Astrocyte (R.ast)', iframe: '/Rast_DEG/Larocca_et_al.html', details: '/RastDEXSeq/files/', dex: '/RastDEXSeq/rat_astrocyte.html', asset: 'assets/larocca.json', json: false},
 					{class: 'liu', title: 'ALS / FTD neurons (TDP neg)', iframe: '/TDPneg_DEG/Liu_et_al.html', details: '/TDPnegDEXSeq/files/', dex: '/TDPnegDEXSeq/TDP_NeuN.html', asset: 'assets/liu.json', json: false},
-          {class: 'pericyte', title: 'Human Brain Pericyte', iframe: '/Pericyte_DEG/index.html', details: '/Pericytes_DEU/files/', dex: '/Pericytes_DEU/Pericytes.html', asset: 'assets/pericyte.json', json: false},
 				],
 				typesLoaded: 0
 			}
@@ -384,6 +384,7 @@ window.onload = ()=>{
 					// Models
 					this.choices.models = new Choices('#models', {
 						choices: [
+							{label: 'Human Brain Pericyte', value: 'pericyte'},
 							{label: 'HeLa', value: 'ferguson'},
 							{label: 'SH-SY5Y', value: 'melamed'},
 							{label: 'Induced human motor neurons', value: 'klim'},
@@ -391,7 +392,6 @@ window.onload = ()=>{
 							{label: 'Mouse mammary gland', value: 'zhao'},
 							{label: 'Rat astrocytes', value: 'larocca'},
 							{label: 'ALS/FTD neurons', value: 'liu'},
-              {label: 'Human Brain Pericyte', value: 'pericyte'},
 						],
 						removeItemButton: true,
 						allowHTML: false
