@@ -11,7 +11,10 @@ Emma L. Scotter<sup>1,2</sup>, <emma.scotter@auckland.ac.nz>.
 1. School of Biological Sciences and Centre for Brain Research, University of Auckland, Auckland, New Zealand. 3A Symonds Street, Auckland 1010, New Zealand
 2. Corresponding author
 
-These data are re-analysed from the following publications:
+These data were collected by us:
+- **Human brain pericytes;** Cao MC, Ryan B, Wu, J, Curtis MA, Faull RLM, Dragunow M, Scotter EL. A panel of TDP-43-regulated splicing events verifies loss of TDP-43 function in amyotrophic lateral sclerosis brain tissue. Neurobiol Dis. 2023
+  
+These data were re-analysed from the following publications:
 - **HeLa;** Roczniak-Ferguson A, Ferguson SM. Pleiotropic requirements for human TDP-43 in the regulation of cell and organelle homeostasis. Life Sci Alliance. 2019;2(5). PMID: [31527135](https://www.ncbi.nlm.nih.gov/pubmed/31527135)
 - **SH-SY5Y;** Melamed Ze, López-Erauskin J, Baughn MW, Zhang O, Drenner K, Sun Y, et al. Premature polyadenylation-mediated loss of stathmin-2 is a hallmark of TDP-43-dependent neurodegeneration. 2019;22(2):180-90. PMID: [30643298](https://www.ncbi.nlm.nih.gov/pubmed/30643298)
 - **Induced Human Motor Neuron (ihMN);** Klim JR, Williams LA, Limone F, Guerra San Juan I, Davis-Dusenbery BN, Mordes DA, et al. ALS-implicated protein TDP-43 sustains levels of STMN2, a mediator of motor neuron growth and repair. Nat Neurosci. 2019;22(2):167-79. PMID: [30643292](https://www.ncbi.nlm.nih.gov/pubmed/30643292)
