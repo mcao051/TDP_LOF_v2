@@ -1,4 +1,4 @@
-# Markers of TDP-43 loss of function:
+# Markers of TDP-43 loss of function: 
 ## Differentially expressed genes and exon usage in various model systems
 
 This database enables comparison of differentially expressed genes and exon usage changes between RNA-sequencing studies of TDP-43 loss of function. Datasets include referenced publicly available data from other groups, and our own data (Motor Neuron Disease Lab (Scotter), University of Auckland, NZ). The database will be updated as appropriate datasets are published (inclusion criteria: (1) raw RNA-seq data available; (2) at least three TDP-43 knockdown samples and two appropriate control samples; (3) experimental or disease-related depletion of functional TDP-43.)
