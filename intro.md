@@ -12,7 +12,7 @@ Emma L. Scotter<sup>1,2</sup>, <emma.scotter@auckland.ac.nz>.
 2. Corresponding author
 
 These data were collected by us:
-- **Human brain pericytes;** Cao MC, Ryan B, Wu, J, Curtis MA, Faull RLM, Dragunow M, Scotter EL. A panel of TDP-43-regulated splicing events verifies loss of TDP-43 function in amyotrophic lateral sclerosis brain tissue. Neurobiol Dis. 2023 Epub ahead of print. PMID: [37527763](https://www.ncbi.nlm.nih.gov/pubmed/37527763)
+- **Human brain pericytes;** Cao MC, Ryan B, Wu, J, Curtis MA, Faull RLM, Dragunow M, Scotter EL. A panel of TDP-43-regulated splicing events verifies loss of TDP-43 function in amyotrophic lateral sclerosis brain tissue. Neurobiol Dis. 2023;30:106245. PMID: [37527763](https://www.ncbi.nlm.nih.gov/pubmed/37527763)
   
 These data were re-analysed from the following publications:
 - **HeLa;** Roczniak-Ferguson A, Ferguson SM. Pleiotropic requirements for human TDP-43 in the regulation of cell and organelle homeostasis. Life Sci Alliance. 2019;2(5). PMID: [31527135](https://www.ncbi.nlm.nih.gov/pubmed/31527135)
